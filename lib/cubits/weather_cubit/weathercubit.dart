@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Weathercubit extends Cubit<WeatherState> {
   Weathercubit() : super(Noweatherstate());
-  late WeatherModel weatherModel;
+  WeatherModel? weatherModel;
   getweather({required String city}) async {
     try {
       WeatherModel weatherModel =
