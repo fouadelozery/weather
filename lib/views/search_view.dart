@@ -10,31 +10,27 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text('search city'),
-          ),
-          body: Center(
-            child: TextField(
-              onSubmitted: (value) async {
-                var weathercubit = BlocProvider.of<Weathercubit>(context);
-                weathercubit.getweather(cityname: value);
-                // ignore: use_build_context_synchronously
-                Navigator.pop(context);
-              },
-              decoration: const InputDecoration(
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-                labelText: 'search',
-                hintText: 'Enter city name',
-                suffixIcon: Icon(Icons.search),
-                suffixIconColor: Colors.blueAccent,
-                hintStyle: TextStyle(),
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.orange)),
-              ),
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('search city'),
+        ),
+        body: Center(
+          child: TextField(
+            onSubmitted: (value) async {
+              var weathercubit = BlocProvider.of<Weathercubit>(context);
+              weathercubit.getweather(city: value);
+              Navigator.pop(context);
+            },
+            decoration: const InputDecoration(
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+              labelText: 'search',
+              hintText: 'Enter city name',
+              suffixIcon: Icon(Icons.search),
+              suffixIconColor: Colors.blueAccent,
+              hintStyle: TextStyle(),
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.orange)),
             ),
           ),
         ));

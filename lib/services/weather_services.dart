@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_application_4/models/weather_model.dart';
 
@@ -14,10 +16,12 @@ class WeatherServices {
     } on DioException catch (e) {
       final String errormessage =
           e.response?.data['error']['message'] ?? 'opps error';
+      print(e);
 
       throw Exception(errormessage);
     } catch (e) {
       throw Exception('error');
+      print(e);
     }
   }
 }

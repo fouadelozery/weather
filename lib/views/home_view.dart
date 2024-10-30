@@ -11,10 +11,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => Weathercubit(),
-      child: MaterialApp(
-          home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text('Weather App'),
           actions: [
@@ -41,8 +38,6 @@ class HomeView extends StatelessWidget {
               return const Text('there was error');
             }
           },
-        ),
-      )),
-    );
+        ));
   }
 }
