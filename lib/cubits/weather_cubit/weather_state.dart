@@ -15,3 +15,5 @@ class Weatherfailurestate extends WeatherState {
 
   Weatherfailurestate(this.errormessage);
 }
+
+class weatherloadingstate extends WeatherState {}

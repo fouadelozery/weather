@@ -8,35 +8,33 @@ class WeatherInfoBody extends StatelessWidget {
   final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
-    WeatherModel weatherModel =
-        BlocProvider.of<Weathercubit>(context).weatherModel!;
     return Container(
-      color: Colors.amberAccent,
       decoration: BoxDecoration(
+          color: Colors.amberAccent,
           gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-          getThemeColor(weatherModel.weathercondition),
-          getThemeColor(weatherModel.weathercondition)[200]!,
-          getThemeColor(weatherModel.weathercondition)[300]!,
-          getThemeColor(weatherModel.weathercondition)[500]!,
-        ],
-      )),
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              getThemeColor(weather.weathercondition),
+              getThemeColor(weather.weathercondition)[200]!,
+              getThemeColor(weather.weathercondition)[300]!,
+              getThemeColor(weather.weathercondition)[500]!,
+            ],
+          )),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              weatherModel.city,
+              weather.city,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 32,
               ),
             ),
             Text(
-              'updated at ${(weatherModel.date.hour)}:${(weatherModel.date.minute)}',
+              'updated at ${(weather.date.hour)}:${(weather.date.minute)}',
               style: const TextStyle(
                 fontSize: 24,
               ),
@@ -51,7 +49,7 @@ class WeatherInfoBody extends StatelessWidget {
                   'assets/images/cloudy.png',
                 ),
                 Text(
-                  weatherModel.temp.toString(),
+                  weather.temp.toString(),
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 32,
@@ -60,13 +58,13 @@ class WeatherInfoBody extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      weatherModel.maxtemp.round().toString(),
+                      weather.maxtemp.round().toString(),
                       style: const TextStyle(
                         fontSize: 16,
                       ),
                     ),
                     Text(
-                      weatherModel.mintemp.round().toString(),
+                      weather.mintemp.round().toString(),
                       style: const TextStyle(
                         fontSize: 16,
                       ),
@@ -79,7 +77,7 @@ class WeatherInfoBody extends StatelessWidget {
               height: 32,
             ),
             Text(
-              weatherModel.weathercondition,
+              weather.weathercondition,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 32,

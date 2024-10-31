@@ -8,6 +8,7 @@ class Weathercubit extends Cubit<WeatherState> {
   Weathercubit() : super(Noweatherstate());
   WeatherModel? weatherModel;
   getweather({required String city}) async {
+    emit(weatherloadingstate());
     try {
       WeatherModel weatherModel =
           await WeatherServices(Dio()).getcurrentweather(city: city);

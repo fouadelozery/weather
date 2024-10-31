@@ -30,7 +30,11 @@ class HomeView extends StatelessWidget {
         ),
         body: BlocBuilder<Weathercubit, WeatherState>(
           builder: (context, state) {
-            if (state is Noweatherstate) {
+            if (state is weatherloadingstate) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is Noweatherstate) {
               return const NoWeatherBody();
             } else if (state is Weatherloadded) {
               return WeatherInfoBody(
